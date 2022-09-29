@@ -1,10 +1,6 @@
 <div class="image">
-<header></header>
+<header *ngIf="!retrieveIsUserLoggedIn()"></header>
+<app-user-header *ngIf="retrieveIsUserLoggedIn()"></app-user-header>
 <router-outlet></router-outlet>
-
-<div class="bgimg">
-    <div class="topleft">
-      <p>Welcome to Charged Up!</p>
-    </div>
 </div>
 

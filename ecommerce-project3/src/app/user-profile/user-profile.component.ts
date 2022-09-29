@@ -31,7 +31,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   addToCart(productSku: number): void{
-    this.productService.addToCart(productSku);
-    
+    this.productService.addToCart(productSku);  
+    this.router.navigate(["app-cart"])
 }
+
 }
