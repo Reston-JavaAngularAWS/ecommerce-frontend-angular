@@ -15,7 +15,7 @@ export class CartService{
                 ) {}
 
     getCart(userID: number): Observable<Cart>{
-        this.httpClient.get<Cart>(this.baseOrdersUrl);
+        return this.httpClient.get<Cart>(this.baseOrdersUrl);
     }
 
 

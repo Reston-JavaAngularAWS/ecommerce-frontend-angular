@@ -1,15 +1,15 @@
-import { getLocaleNumberFormat } from "@angular/common";
 import { Injectable } from "@angular/core";
-import { Product } from "./product.model"
+import { ProductModel } from "./product.model"
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from "../cart/cart.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService{
-    allProducts: Product[] = [{
+    allProducts: ProductModel[] = [{
     sku: 1,
     productQuantity: 10,
     productName: "Golf clubs",
@@ -40,7 +40,7 @@ export class ProductService{
 
 ];
 
-baseProductsUrl: string = "http://localhost8080/api/products";
+baseProductsUrl: string = "http://localhost:8080/api/product/getall";
 
 baseOrdersUrl: string = "http://localhost8080/api/orders";
 
@@ -50,8 +50,8 @@ constructor(private httpClient: HttpClient,
             private router: Router
             ){}
 
-getAllProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.baseProductsUrl);
+getAllProducts(): Observable<ProductModel[]>{
+    return this.httpClient.get<ProductModel[]>(this.baseProductsUrl);
 }
 
 addToCart(productSku: number){
@@ -61,7 +61,7 @@ addToCart(productSku: number){
           this.allProducts[productSku-1].productQuantity--;
           this.httpClient.delete<void>(this.baseProductsUrl+ "/" + productSku);
           
-          this.httpClient.put<>(this.baseOrdersUrl, productSku);
+          //this.httpClient.put<>(this.baseOrdersUrl, productSku);
         
         }
       }else{
