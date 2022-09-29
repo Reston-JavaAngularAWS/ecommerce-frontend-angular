@@ -1,28 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartComponent } from './models/cart/cart/cart.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { OrderHistoryComponent } from './models/orders/order-history/order-history.component';
 import { HeaderComponent } from './header/header.component';
+import { UserComponent } from './users/user/user.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/display-products/display-products.component';
+import { CartComponent } from './cart/cart/cart.component';
+import { RegisterComponent } from './users/register/register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserHeaderComponent } from './header/user-header/user-header.component';
+import { ProfileComponent } from './user-profile/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
-    UserProfileComponent,
-    LoginComponent,
-    LogoutComponent,
-    OrderHistoryComponent,
+
+    UserComponent,
     HeaderComponent,
+    CartComponent,
+    ProductsComponent,
+    RegisterComponent,
+    UserProfileComponent,
+    UserHeaderComponent,
+    ProfileComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

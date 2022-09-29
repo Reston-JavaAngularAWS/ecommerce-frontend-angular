@@ -1,7 +1,7 @@
-export interface Product{
+export interface ProductModel{
     sku: number;
-    productQuantity: number;
     productName: string;
     productImage: string;
+    productQuantity: number;
     productPrice: number;
 }

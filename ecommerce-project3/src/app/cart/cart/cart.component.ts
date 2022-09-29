@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../cart.model'
 import { CartService } from '../cart.service';
 
 @Component({ 
@@ -16,12 +15,12 @@ export class CartComponent implements OnInit {
               private CS: CartService,          
     ) { }
 
-  ngOnInit(userID: number): void {
-    this.loadItems(userID);
+  ngOnInit(): void {
+    
   }
 
   loadItems(userID: number): void{
-    this.CS.
+    this.CS
   }
 
 }
