@@ -20,11 +20,19 @@ export class UserHeaderComponent implements OnInit {
   }
 
   display(){
-    this.router.navigate(["app-user-profile"])
+    this.router.navigate(["app-populate-cart"])
   }
 
   profile(){
     this.router.navigate(["app-profile"])
+  }
+
+  history(){
+    this.router.navigate(["app-order-history"])
+  }
+
+  cart(){
+    this.router.navigate(["app-cart"])
   }
 
 }

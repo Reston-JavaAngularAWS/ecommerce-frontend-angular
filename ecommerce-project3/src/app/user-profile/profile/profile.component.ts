@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
 
     let userInfo: any = sessionStorage.getItem("userinfo")
     this.userModel = JSON.parse(userInfo)
+    
   }
 
 }

@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartModel } from './cart.model';
 import { CartService } from './cart.service';
-import { ProductModel } from '../products/product.model';
 
 @Component({ 
   selector: 'app-cart',
@@ -10,20 +10,37 @@ import { ProductModel } from '../products/product.model';
 })
 export class CartComponent implements OnInit {
 
-  baseOrdersUrl: string = "http://localhost8080/api/orders";
+  orderItem: CartModel = {
+    orderNo: 0,
+    userID: 0,
+    orderDate: "",
+    orderStatus: false,
+    orderItems: [],
+    allProducts: []
+  }
 
-  product: ProductModel[] = [];
-
-  constructor(private httpClient: HttpClient,
-              private CS: CartService,          
-    ) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
+
+    let productInfo: any = sessionStorage.getItem("productinfo")
+    this.orderItem = JSON.parse(productInfo)
     
   }
 
-  loadItems(userID: number): void{
-    this.CS
+  checkOut(userID: number){
+    this.cartService.checkout(this.orderItem).subscribe((response)=>{
+      this.router.navigate(["app-populate-cart"])
+      this.orderItem = {
+        orderNo: 0,
+        userID: 0,
+        orderDate: "",
+        orderStatus: false,
+        orderItems: [],
+        allProducts: []
+      }
+    })
   }
-
+  
+  
 }

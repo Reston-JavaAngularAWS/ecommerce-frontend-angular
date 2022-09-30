@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Cart } from "./cart.model";
+import { CartModel } from "./cart.model";
+
 
 
 @Injectable({
@@ -9,14 +10,27 @@ import { Cart } from "./cart.model";
 })
 export class CartService{
 
-    baseOrdersUrl: string = "http://localhost8080/api/orders";
+    createOrderUrl: string = "http://localhost:8080/api/orders/update";
+
+    baseOrdersUrl: string = "http://localhost:8080/api/orders"
+
+    checkOutOrderUrl: string = "http://localhost:8080/api/orders/checkout/"
 
     constructor(private httpClient: HttpClient
                 ) {}
 
-    getCart(userID: number): Observable<Cart>{
-        return this.httpClient.get<Cart>(this.baseOrdersUrl);
+
+    addToCart(cart: CartModel): Observable<CartModel>{
+        console.log(cart)
+        return this.httpClient.put<CartModel>(this.createOrderUrl, cart);
     }
 
+    checkout(cart: CartModel): Observable<CartModel>{
+        return this.httpClient.put<CartModel>(this.checkOutOrderUrl, cart);
+    }
+
+    getHistory(userID: number): Observable<CartModel[]>{
+        return this.httpClient.get<CartModel[]>(this.baseOrdersUrl+"/"+userID)
+    }
 
 }
