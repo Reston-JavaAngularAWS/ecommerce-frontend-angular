@@ -9,24 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/display-products/display-products.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './users/register/register.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserHeaderComponent } from './header/user-header/user-header.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
+import { OrderHistoryComponent } from './orders/order-history/order-history.component';
+import { PopulateCartComponent } from './cart/populate-cart/populate-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     UserComponent,
     HeaderComponent,
     CartComponent,
     ProductsComponent,
     RegisterComponent,
-    UserProfileComponent,
     UserHeaderComponent,
     ProfileComponent,
-
-
+    OrderHistoryComponent,
+    PopulateCartComponent,
 
   ],
   imports: [

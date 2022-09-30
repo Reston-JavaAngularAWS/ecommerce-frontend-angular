@@ -1,5 +1,5 @@
 
-export interface orderItem{
+export interface orderItemModel{
     itemId: number;
     orderNo: number;
     productSku: number;

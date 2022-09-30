@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-3"></div>
@@ -9,7 +10,7 @@
                       <th scope="col">Product</th>
                       <th scope="col">Image</th>
                       <th scope="col">Price</th>
-                      <th scope="col">Checkout</th>
+                      <th scope="col">Order</th>
                     </tr>
                   </thead>
                 <tbody>
@@ -18,7 +19,7 @@
                         <td><img [src]="eachProduct.productImage" height="60px" width="100px"></td>
                         <td>{{ eachProduct.productPrice }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" (click)="addToCart(eachProduct.sku)">
+                            <button type="button" class="btn btn-primary" (click)="populateCart(eachProduct.productSku,eachProduct.productName, eachProduct.productImage, eachProduct.productQuantity, eachProduct.productPrice)">
                                 <span class="material-symbols-outlined">add_shopping_cart</span>
                             </button>
                         </td>

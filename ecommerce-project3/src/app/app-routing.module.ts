@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { PopulateCartComponent } from './cart/populate-cart/populate-cart.component';
+import { OrderHistoryComponent } from './orders/order-history/order-history.component';
 import { ProductsComponent } from './products/display-products/display-products.component';
 import { ProfileComponent } from './user-profile/profile/profile.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './users/register/register.component';
 import { UserComponent } from './users/user/user.component';
 
@@ -21,8 +22,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: "app-user-profile",
-    component: UserProfileComponent
+    path: "app-populate-cart",
+    component: PopulateCartComponent
   },
   {
     path: "app-profile",
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "app-cart",
     component: CartComponent
+  },
+  {
+    path: "app-order-history",
+    component: OrderHistoryComponent
   }
 
 

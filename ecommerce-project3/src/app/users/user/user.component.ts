@@ -35,12 +35,10 @@ export class UserComponent implements OnInit {
 
   login(): void{
    this.userService.login(this.user).subscribe((response)=>{
-      console.log(response);
     if(response.userID != 0){
-      console.log(response.firstname);
         this.authService.isLoggedIn = true;
         sessionStorage.setItem("userinfo", JSON.stringify(response))
-        this.router.navigate(["app-user-profile"]);
+        this.router.navigate(["app-populate-cart"]);
       }else{
         this.errorMessage = 'Invalid username/password';
   

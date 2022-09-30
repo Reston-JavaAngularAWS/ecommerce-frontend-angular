@@ -1,8 +1,10 @@
-import { orderItem } from "../orderItems/orderItem.model";
-export interface Cart{
+import { ProductModel } from "../products/product.model";
+import { orderItemModel } from "../orderItems/orderItem.model";
+export interface CartModel{
     orderNo: number;
     userID: number;
     orderDate: string;
-    orderStatus: string;
-    orderItems: orderItem[];
+    orderStatus: Boolean;
+    orderItems: orderItemModel[];
+    allProducts: ProductModel[];
 }

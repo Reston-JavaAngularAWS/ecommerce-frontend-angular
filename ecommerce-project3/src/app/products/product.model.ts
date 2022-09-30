@@ -1,5 +1,5 @@
 export interface ProductModel{
-    sku: number;
+    productSku: number;
     productName: string;
     productImage: string;
     productQuantity: number;

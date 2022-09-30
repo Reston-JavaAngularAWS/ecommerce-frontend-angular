@@ -1,40 +1,33 @@
-<div class="cart_section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="cart_container">
-                    <div class="cart_title" style="color: white;">Shopping Cart</div>
-                        <ul class="cart_list">
-                            <li class="cart_item clearfix">
-                                <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                    <div class="cart_item_name cart_info_col">
-                                        <div class="cart_item_title">Image</div>
-                                    <!-- <td><img [src]="eachProduct.productImage" height="60px" width="100px"></td> -->
-                                    </div>
-                                    <div class="cart_item_quantity cart_info_col">
-                                        <div class="cart_item_title">Name</div>
-                                        <!-- <td>{{ eachProduct.productName }}</td> -->
-                                    </div>
-                                    <div class="cart_item_price cart_info_col">
-                                        <div class="cart_item_title">Price</div>
-                                    <!-- <td>{{ eachProduct.productPrice }}</td> -->
-                                    </div>
-                                    <div class="cart_item_total cart_info_col">
-                                        <div class="cart_item_title">Total</div>
-                                    <!-- <td>{{ eachProduct.productPrice }}</td> -->
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="order_total">
-                        <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount"></div>
-                        </div>
-                    </div>
-                    <div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue Shopping</button> <button type="button" class="button cart_button_checkout">Complete</button> </div>
-                </div>
-            </div>
-        </div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h3 style="color:white">Shopping Cart</h3>
+            <table class="table table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Product</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Checkout</th>
+                    </tr>
+                  </thead>
+                  <ng-container *ngIf="orderItem">
+                <tbody>
+                    <tr *ngFor="let detail of orderItem.allProducts">
+                        <td>{{ detail.productName}}</td>
+                        <td><img [src]="detail.productImage" height="60px" width="100px"></td>
+                        <td>{{ detail.productPrice }}</td>
+                        <td>
+                            <div class="cart_buttons">
+                                <button type="button" class="button cart_button_checkout" (click)="checkOut(detail.productSku)">Complete</button> 
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </ng-container>
+            </table>
+        <div class="col-2"></div>
     </div>
+</div>

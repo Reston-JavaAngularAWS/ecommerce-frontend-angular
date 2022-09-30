@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../product.service';
 import { ProductModel } from '../product.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/users/auth.service';
 
 @Component({
   selector: 'display-products',
@@ -15,11 +16,18 @@ export class ProductsComponent implements OnInit {
   constructor(private httpClient: HttpClient, 
               private productService: ProductService, 
               private AR: ActivatedRoute,
-              private router: Router
+              private router: Router,
+              private authService: AuthService
               ) { }
 
   ngOnInit(): void {
     this.loadProducts();
+    
+  }
+
+  login(){
+    this.authService.isLoggedIn = false;
+    this.router.navigate(["app-user"])
   }
 
   loadProducts(): void{
@@ -29,8 +37,4 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  addToCart(productSku: number): void{
-    this.productService.addToCart(productSku);
-    
-}
 }
